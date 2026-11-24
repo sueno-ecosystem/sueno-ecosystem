@@ -20,7 +20,8 @@ Each app also has its own AGENTS.md (Next.js / Expo). Read both.
 6. iOS app shows no prices, purchase buttons, or website links until decided in docs/decisions.md.
 7. Secrets only via environment variables. Never commit .env files.
 8. Medications content is educational only. No dosages or taper schedules.
-9. Checkout always requires a logged-in user; pass `client_reference_id = user.id` to Stripe.
+9. Subscription checkout always requires a logged-in user; pass `client_reference_id = user.id` to Stripe.
+   Exception: the week-0 founding-member pre-sale (no login); buyers claim later via a magic link to the purchase email, never via Sign in with Apple.
 
 ## Conventions
 - Install with pnpm only. Run `pnpm typecheck && pnpm lint` before committing.
