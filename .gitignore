@@ -24,3 +24,4 @@ apps/mobile/android/
 # os / editors
 .DS_Store
 *.log
+supabase/.temp/
