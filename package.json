@@ -1,0 +1,16 @@
+{
+  "name": "sueno-ecosystem",
+  "private": true,
+  "scripts": {
+    "dev:web": "turbo dev --filter=web",
+    "dev:mobile": "turbo dev --filter=mobile",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "db:types": "supabase gen types typescript --project-id $SUPABASE_PROJECT_REF > packages/shared/src/database.types.ts"
+  },
+  "devDependencies": {
+    "turbo": "^2"
+  },
+  "packageManager": "pnpm@10.0.0"
+}
