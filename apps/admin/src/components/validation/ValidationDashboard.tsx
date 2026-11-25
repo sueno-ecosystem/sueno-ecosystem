@@ -34,11 +34,13 @@ function readUtmField(utm: Json | null, key: string): string {
 export function ValidationDashboard({
   waitlist,
   presales,
+  isOwner,
   posthogDashboardUrl,
   defaultSiteUrl,
 }: {
   waitlist: ValidationWaitlistRow[];
   presales: ValidationPresaleRow[];
+  isOwner: boolean;
   posthogDashboardUrl: string | null;
   defaultSiteUrl: string;
 }) {
@@ -142,7 +144,7 @@ export function ValidationDashboard({
       </div>
 
       {/* Success bar cards */}
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className={`grid gap-4 ${isOwner ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
         <div className="rounded-lg border border-border bg-bg-subtle p-5">
           <div className="flex items-center justify-between text-xs text-fg-muted">
             <span>Visits (from PostHog)</span>
@@ -187,24 +189,26 @@ export function ValidationDashboard({
           </div>
         </div>
 
-        <div className="rounded-lg border border-border bg-bg-subtle p-5">
-          <div className="flex items-center justify-between text-xs text-fg-muted">
-            <span>Founding pre-sales</span>
-            <span>Target: ≥20</span>
+        {isOwner && (
+          <div className="rounded-lg border border-border bg-bg-subtle p-5">
+            <div className="flex items-center justify-between text-xs text-fg-muted">
+              <span>Founding pre-sales</span>
+              <span>Target: ≥20</span>
+            </div>
+            <div className="mt-2 flex items-baseline justify-between">
+              <p className="text-2xl font-semibold tracking-tight">{presaleCount}</p>
+              <p className="font-mono text-xs text-fg-muted">
+                {presaleRate !== null ? `${presaleRate.toFixed(2)}% conv.` : `${presaleCount} / 20`}
+              </p>
+            </div>
+            <div className="mt-3 h-1.5 w-full overflow-hidden rounded bg-bg-muted">
+              <div
+                className="h-full bg-accent transition-all"
+                style={{ width: `${Math.min(100, (presaleCount / 20) * 100)}%` }}
+              />
+            </div>
           </div>
-          <div className="mt-2 flex items-baseline justify-between">
-            <p className="text-2xl font-semibold tracking-tight">{presaleCount}</p>
-            <p className="font-mono text-xs text-fg-muted">
-              {presaleRate !== null ? `${presaleRate.toFixed(2)}% conv.` : `${presaleCount} / 20`}
-            </p>
-          </div>
-          <div className="mt-3 h-1.5 w-full overflow-hidden rounded bg-bg-muted">
-            <div
-              className="h-full bg-accent transition-all"
-              style={{ width: `${Math.min(100, (presaleCount / 20) * 100)}%` }}
-            />
-          </div>
-        </div>
+        )}
       </div>
 
       {/* Campaign link builder */}
@@ -283,14 +287,18 @@ export function ValidationDashboard({
                 <th className="px-4 py-2.5 font-medium">utm_content</th>
                 <th className="px-4 py-2.5 font-medium">Source</th>
                 <th className="px-4 py-2.5 font-medium text-right">Waitlist</th>
-                <th className="px-4 py-2.5 font-medium text-right">Pre-sales</th>
-                <th className="px-4 py-2.5 font-medium text-right">Revenue</th>
+                {isOwner && (
+                  <>
+                    <th className="px-4 py-2.5 font-medium text-right">Pre-sales</th>
+                    <th className="px-4 py-2.5 font-medium text-right">Revenue</th>
+                  </>
+                )}
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
               {filteredRows.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-4 py-8 text-center text-sm text-fg-muted">
+                  <td colSpan={isOwner ? 5 : 3} className="px-4 py-8 text-center text-sm text-fg-muted">
                     No waitlist or pre-sale rows recorded for this window yet.
                   </td>
                 </tr>
@@ -302,12 +310,16 @@ export function ValidationDashboard({
                     <td className="px-4 py-2.5 text-right font-mono text-xs text-fg">
                       {row.waitlist}
                     </td>
-                    <td className="px-4 py-2.5 text-right font-mono text-xs text-fg">
-                      {row.presales}
-                    </td>
-                    <td className="px-4 py-2.5 text-right font-mono text-xs text-fg">
-                      ${(row.revenueCents / 100).toFixed(0)}
-                    </td>
+                    {isOwner && (
+                      <>
+                        <td className="px-4 py-2.5 text-right font-mono text-xs text-fg">
+                          {row.presales}
+                        </td>
+                        <td className="px-4 py-2.5 text-right font-mono text-xs text-fg">
+                          ${(row.revenueCents / 100).toFixed(0)}
+                        </td>
+                      </>
+                    )}
                   </tr>
                 ))
               )}
