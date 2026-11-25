@@ -13,6 +13,8 @@
     "@sueno/shared": "workspace:*",
     "@supabase/supabase-js": "^2.119.2",
     "next": "16.4.6",
+    "posthog-js": "^1.455.2",
+    "posthog-node": "^6.1.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "stripe": "^23.2.0"

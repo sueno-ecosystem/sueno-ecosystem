@@ -18,7 +18,8 @@ export interface NavItem {
     | "ticket"
     | "shield"
     | "sliders"
-    | "history";
+    | "history"
+    | "bar-chart-3";
   ownerOnly?: boolean;
 }
 
@@ -52,6 +53,7 @@ export const NAV_GROUPS: NavGroup[] = [
   {
     label: "Growth",
     items: [
+      { label: "Validation", href: "/validation", icon: "bar-chart-3" },
       { label: "Waitlist", href: "/waitlist", icon: "users" },
       { label: "Clicks", href: "/clicks", icon: "mouse-pointer-click" },
     ],

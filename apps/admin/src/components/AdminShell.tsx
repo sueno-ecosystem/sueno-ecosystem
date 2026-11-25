@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import {
+  BarChart3,
   Boxes,
   ChevronRight,
   CreditCard,
@@ -50,6 +51,7 @@ const ICONS: Record<NavItem["icon"], React.ComponentType<{ className?: string }>
   shield: Shield,
   sliders: Sliders,
   history: History,
+  "bar-chart-3": BarChart3,
 };
 
 export function AdminShell({

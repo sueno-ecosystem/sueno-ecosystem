@@ -7,6 +7,8 @@ Tabs: Learn (short videos), 4 AM Journal (local-first), Bundles (1–2 personali
 ## Validation (week 0)
 Landing page + founding-member pre-sale ($29 / 3 months).
 Success bar: 1,000+ visits, ≥3% waitlist, ≥20 pre-sales. Miss it → change message/offer before building.
+Campaign links: `https://<site>/?utm_source=tiktok&utm_medium=social&utm_campaign=launch&utm_content=<video-slug>` (`utm_source=instagram` for Instagram).
+TODO (`stripe-webhook`): emit PostHog `presale_paid` server event using `session.metadata.distinct_id` + UTMs on `checkout.session.completed` (`kind = 'presale'`).
 
 ## Stack
 | Layer | Choice |

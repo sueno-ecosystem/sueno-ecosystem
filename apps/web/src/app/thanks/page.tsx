@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { ThanksTracker } from "@/components/ThanksTracker";
 
 export const metadata = { title: "You're in · Sueño" };
 
 export default function Thanks() {
   return (
     <main className="flex flex-1 items-center justify-center px-6 py-24">
+      <ThanksTracker />
       <div className="max-w-lg text-center">
         <p className="text-sm font-medium tracking-widest text-accent uppercase">Founding member</p>
         <h1 className="mt-4 text-4xl font-semibold">You&apos;re in. Thank you.</h1>
