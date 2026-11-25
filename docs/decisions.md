@@ -14,3 +14,4 @@ One line per decision: date — decision — why.
 - 2026-11-24 — Bundles start as partner/affiliate links — avoid inventory, shipping, returns, sales tax.
 - 2026-11-24 — Medications pillar is education only — Apple 1.4.1/1.4.2 and clinical liability.
 - 2026-11-24 — Week 0 = landing page + founding-member pre-sale before building the app — validate willingness to pay.
+- 2026-11-24 — Landing page v1: hook "Awake at 4 AM again?", founding member $29 for first 3 months then $19/mo, full refund before launch — draft copy, test hooks via UTM-tagged videos.
