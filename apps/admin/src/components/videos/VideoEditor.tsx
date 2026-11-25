@@ -370,28 +370,38 @@ export function VideoEditor({
 
       {/* Tab Content */}
       {(tab === "Details" || tab === "Spanish") && (
-        <form onSubmit={form.handleSubmit(onSubmitForm)} className="space-y-4 rounded-lg border border-border bg-bg-subtle p-5">
+        <form
+          onSubmit={form.handleSubmit(onSubmitForm)}
+          className="space-y-6 rounded-lg border border-border bg-bg-subtle p-6 sm:p-8"
+        >
           {tab === "Details" && (
             <>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="block text-xs font-medium text-fg-muted">Title</label>
+              <div className="border-b border-border pb-4">
+                <h2 className="text-sm font-semibold text-fg">Lesson details</h2>
+                <p className="mt-1 text-xs text-fg-muted">
+                  Title, URL slug, and summary shown in the Learn tab.
+                </p>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="block text-xs font-medium text-fg">Title</label>
                   <input
                     {...form.register("title")}
                     disabled={!canEdit}
-                    className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 text-sm text-fg focus:border-accent focus:outline-none disabled:opacity-60"
+                    className="h-10 w-full rounded-md border border-border bg-bg px-3.5 text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
                   />
                 </div>
-                <div>
+                <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="block text-xs font-medium text-fg-muted">Slug</label>
+                    <label className="block text-xs font-medium text-fg">Slug</label>
                     {canEdit && (
                       <button
                         type="button"
                         onClick={() =>
                           form.setValue("slug", slugify(form.getValues("title")), { shouldDirty: true })
                         }
-                        className="text-[11px] text-accent hover:underline"
+                        className="text-[11px] font-medium text-accent hover:underline"
                       >
                         Auto from title
                       </button>
@@ -400,57 +410,62 @@ export function VideoEditor({
                   <input
                     {...form.register("slug")}
                     disabled={!canEdit}
-                    className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 font-mono text-sm text-fg focus:border-accent focus:outline-none disabled:opacity-60"
+                    className="h-10 w-full rounded-md border border-border bg-bg px-3.5 font-mono text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
                   />
                 </div>
               </div>
 
-              <div>
-                <label className="block text-xs font-medium text-fg-muted">Summary</label>
+              <div className="space-y-2">
+                <label className="block text-xs font-medium text-fg">Summary</label>
                 <textarea
-                  rows={3}
+                  rows={4}
                   {...form.register("summary")}
                   disabled={!canEdit}
-                  className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 text-sm text-fg focus:border-accent focus:outline-none disabled:opacity-60"
+                  className="min-h-[104px] w-full rounded-md border border-border bg-bg px-3.5 py-2.5 text-sm leading-relaxed text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
                 />
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
-                <div>
-                  <label className="block text-xs font-medium text-fg-muted">Pillar</label>
-                  <select
-                    {...form.register("pillar")}
-                    disabled={!canEdit}
-                    className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 text-sm text-fg focus:border-accent focus:outline-none disabled:opacity-60"
-                  >
-                    {pillars.map((p) => (
-                      <option key={p.slug} value={p.slug}>
-                        {p.title}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+              <div className="border-t border-border pt-6">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-fg-muted">
+                  Classification & access
+                </h3>
+                <div className="mt-4 grid gap-5 sm:grid-cols-3">
+                  <div className="space-y-2">
+                    <label className="block text-xs font-medium text-fg">Pillar</label>
+                    <select
+                      {...form.register("pillar")}
+                      disabled={!canEdit}
+                      className="h-10 w-full rounded-md border border-border bg-bg px-3.5 text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
+                    >
+                      {pillars.map((p) => (
+                        <option key={p.slug} value={p.slug}>
+                          {p.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-fg-muted">Access</label>
-                  <select
-                    {...form.register("access")}
-                    disabled={!canEdit}
-                    className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 text-sm text-fg focus:border-accent focus:outline-none disabled:opacity-60"
-                  >
-                    <option value="members">Members only</option>
-                    <option value="free">Free preview</option>
-                  </select>
-                </div>
+                  <div className="space-y-2">
+                    <label className="block text-xs font-medium text-fg">Access</label>
+                    <select
+                      {...form.register("access")}
+                      disabled={!canEdit}
+                      className="h-10 w-full rounded-md border border-border bg-bg px-3.5 text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
+                    >
+                      <option value="members">Members only</option>
+                      <option value="free">Free preview</option>
+                    </select>
+                  </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-fg-muted">Sort order</label>
-                  <input
-                    type="number"
-                    {...form.register("sort")}
-                    disabled={!canEdit}
-                    className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 text-sm text-fg focus:border-accent focus:outline-none disabled:opacity-60"
-                  />
+                  <div className="space-y-2">
+                    <label className="block text-xs font-medium text-fg">Sort order</label>
+                    <input
+                      type="number"
+                      {...form.register("sort")}
+                      disabled={!canEdit}
+                      className="h-10 w-full rounded-md border border-border bg-bg px-3.5 text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
+                    />
+                  </div>
                 </div>
               </div>
             </>
@@ -458,37 +473,44 @@ export function VideoEditor({
 
           {tab === "Spanish" && (
             <>
-              <div>
-                <label className="block text-xs font-medium text-fg-muted">Title (ES)</label>
+              <div className="border-b border-border pb-4">
+                <h2 className="text-sm font-semibold text-fg">Spanish localization</h2>
+                <p className="mt-1 text-xs text-fg-muted">
+                  Optional Spanish copy shown when the device language is Spanish.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <label className="block text-xs font-medium text-fg">Title (ES)</label>
                 <input
                   {...form.register("title_es")}
                   disabled={!canEdit}
-                  className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 text-sm text-fg focus:border-accent focus:outline-none disabled:opacity-60"
+                  className="h-10 w-full rounded-md border border-border bg-bg px-3.5 text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
                 />
               </div>
-              <div>
-                <label className="block text-xs font-medium text-fg-muted">Summary (ES)</label>
+              <div className="space-y-2">
+                <label className="block text-xs font-medium text-fg">Summary (ES)</label>
                 <textarea
-                  rows={3}
+                  rows={4}
                   {...form.register("summary_es")}
                   disabled={!canEdit}
-                  className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 text-sm text-fg focus:border-accent focus:outline-none disabled:opacity-60"
+                  className="min-h-[104px] w-full rounded-md border border-border bg-bg px-3.5 py-2.5 text-sm leading-relaxed text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
                 />
               </div>
-              <p className="text-xs text-fg-muted">
+              <div className="rounded-md border border-border bg-bg px-4 py-3 text-xs text-fg-muted">
                 Spanish captions key:{" "}
                 <span className="font-mono text-fg">{video.captions_es_key ?? "Not uploaded"}</span>{" "}
                 (upload in the Media tab).
-              </p>
+              </div>
             </>
           )}
 
           {canEdit && (
-            <div className="flex justify-end pt-2">
+            <div className="flex justify-end border-t border-border pt-5">
               <button
                 type="submit"
                 disabled={saveState === "saving"}
-                className="rounded-md bg-accent px-3.5 py-1.5 text-xs font-medium text-accent-fg hover:opacity-90 disabled:opacity-60"
+                className="h-9 rounded-md bg-accent px-4 text-xs font-medium text-accent-fg hover:opacity-90 disabled:opacity-60"
               >
                 Save changes
               </button>

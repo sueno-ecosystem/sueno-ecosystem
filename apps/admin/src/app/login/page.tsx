@@ -51,31 +51,31 @@ export default function LoginPage() {
         <span className="capitalize">{mode}</span>
       </button>
 
-      <div className="w-full max-w-sm rounded-lg border border-border bg-bg-subtle p-6">
-        <div className="flex items-center gap-2">
+      <div className="w-full max-w-sm rounded-lg border border-border bg-bg-subtle p-7 sm:p-8">
+        <div className="flex items-center gap-2.5">
           <span className="inline-block h-2 w-2 rounded-full bg-accent" />
           <h1 className="text-base font-semibold tracking-tight">Sueño Admin</h1>
         </div>
-        <p className="mt-1.5 text-sm text-fg-muted">
+        <p className="mt-2 text-sm leading-relaxed text-fg-muted">
           Sign in with a magic link. Admin access is required.
         </p>
 
         {!configured ? (
-          <div className="mt-5 rounded-md border border-border bg-bg p-3 text-xs text-fg-muted">
+          <div className="mt-6 rounded-md border border-border bg-bg p-4 text-xs leading-relaxed text-fg-muted">
             Supabase not configured. Set{" "}
             <code className="font-mono text-fg">NEXT_PUBLIC_SUPABASE_URL</code> and{" "}
             <code className="font-mono text-fg">NEXT_PUBLIC_SUPABASE_ANON_KEY</code> in{" "}
             <code className="font-mono text-fg">apps/admin/.env.local</code>.
           </div>
         ) : status === "sent" ? (
-          <div className="mt-5 rounded-md border border-border bg-bg p-3 text-sm text-fg">
+          <div className="mt-6 rounded-md border border-border bg-bg p-4 text-sm leading-relaxed text-fg">
             Check <span className="font-medium">{email}</span> for your sign-in link.
           </div>
         ) : (
-          <form onSubmit={onSubmit} className="mt-5 space-y-3">
-            <div>
-              <label htmlFor="email" className="block text-xs font-medium text-fg-muted">
-                Email
+          <form onSubmit={onSubmit} className="mt-6 space-y-5">
+            <div className="space-y-2">
+              <label htmlFor="email" className="block text-xs font-medium text-fg">
+                Email address
               </label>
               <input
                 id="email"
@@ -85,7 +85,7 @@ export default function LoginPage() {
                 placeholder="you@sueno.app"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1.5 w-full rounded-md border border-border bg-bg px-3 py-2 text-sm text-fg placeholder:text-fg-muted focus:border-accent focus:outline-none"
+                className="h-10 w-full rounded-md border border-border bg-bg px-3.5 text-sm text-fg placeholder:text-fg-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
               />
             </div>
 
@@ -96,7 +96,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full rounded-md bg-accent px-3 py-2 text-sm font-medium text-accent-fg transition-opacity hover:opacity-90 disabled:opacity-60"
+              className="h-10 w-full rounded-md bg-accent px-4 text-sm font-medium text-accent-fg transition-opacity hover:opacity-90 disabled:opacity-60"
             >
               {status === "loading" ? "Sending link…" : "Send magic link"}
             </button>

@@ -243,29 +243,29 @@ export function VideosTable({
           <form
             onSubmit={createVideo}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md rounded-lg border border-border bg-bg p-5 shadow-lg"
+            className="w-full max-w-md rounded-lg border border-border bg-bg p-6 sm:p-7 shadow-lg"
           >
-            <h2 className="text-sm font-semibold text-fg">New video</h2>
-            <p className="mt-1 text-xs text-fg-muted">Creates a draft record in Supabase.</p>
+            <h2 className="text-base font-semibold text-fg">New video</h2>
+            <p className="mt-1.5 text-xs text-fg-muted">Creates a draft record in Supabase.</p>
 
-            <div className="mt-4 space-y-3">
-              <div>
-                <label className="block text-xs font-medium text-fg-muted">Title</label>
+            <div className="mt-6 space-y-5">
+              <div className="space-y-2">
+                <label className="block text-xs font-medium text-fg">Title</label>
                 <input
                   autoFocus
                   required
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
                   placeholder="Why you wake up at 4 AM"
-                  className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 text-sm text-fg focus:border-accent focus:outline-none"
+                  className="h-10 w-full rounded-md border border-border bg-bg px-3.5 text-sm text-fg placeholder:text-fg-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
                 />
               </div>
-              <div>
-                <label className="block text-xs font-medium text-fg-muted">Pillar</label>
+              <div className="space-y-2">
+                <label className="block text-xs font-medium text-fg">Pillar</label>
                 <select
                   value={newPillar}
                   onChange={(e) => setNewPillar(e.target.value)}
-                  className="mt-1 w-full rounded-md border border-border bg-bg px-3 py-1.5 text-sm text-fg focus:border-accent focus:outline-none"
+                  className="h-10 w-full rounded-md border border-border bg-bg px-3.5 text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
                 >
                   {pillars.map((p) => (
                     <option key={p.slug} value={p.slug}>
@@ -277,18 +277,18 @@ export function VideosTable({
               {createError && <p className="text-xs text-red-500">{createError}</p>}
             </div>
 
-            <div className="mt-5 flex justify-end gap-2">
+            <div className="mt-7 flex justify-end gap-3 border-t border-border pt-4">
               <button
                 type="button"
                 onClick={() => setNewOpen(false)}
-                className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-fg hover:bg-bg-muted"
+                className="h-9 rounded-md border border-border px-4 text-xs font-medium text-fg hover:bg-bg-muted"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={creating}
-                className="rounded-md bg-accent px-3 py-1.5 text-xs font-medium text-accent-fg hover:opacity-90 disabled:opacity-60"
+                className="h-9 rounded-md bg-accent px-4 text-xs font-medium text-accent-fg hover:opacity-90 disabled:opacity-60"
               >
                 {creating ? "Creating…" : "Create draft"}
               </button>
