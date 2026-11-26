@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev:web": "turbo dev --filter=web",
+    "dev:admin": "turbo dev --filter=admin",
     "dev:mobile": "turbo dev --filter=mobile",
     "build": "turbo build",
     "lint": "turbo lint",
