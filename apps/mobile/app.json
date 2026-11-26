@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Sue\u00f1o",
-    "slug": "sueno",
+    "name": "Galene",
+    "slug": "galene",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "sueno",
+    "scheme": "galene",
     "userInterfaceStyle": "dark",
     "ios": {
       "supportsTablet": true

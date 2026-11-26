@@ -54,7 +54,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm rounded-lg border border-border bg-bg-subtle p-7 sm:p-8">
         <div className="flex items-center gap-2.5">
           <span className="inline-block h-2 w-2 rounded-full bg-accent" />
-          <h1 className="text-base font-semibold tracking-tight">Sueño Admin</h1>
+          <h1 className="text-base font-semibold tracking-tight">Galene Admin</h1>
         </div>
         <p className="mt-2 text-sm leading-relaxed text-fg-muted">
           Sign in with a magic link. Admin access is required.
@@ -82,7 +82,7 @@ export default function LoginPage() {
                 type="email"
                 required
                 autoComplete="email"
-                placeholder="you@sueno.app"
+                placeholder="you@<your-domain>"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="h-10 w-full rounded-md border border-border bg-bg px-3.5 text-sm text-fg placeholder:text-fg-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"

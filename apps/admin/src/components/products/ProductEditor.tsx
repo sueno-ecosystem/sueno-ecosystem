@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ArrowLeft, Check, Circle, ExternalLink } from "lucide-react";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 import type { AdminRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/client";
 import { formatDateTime, publicMediaUrl, slugify } from "@/lib/format";
@@ -424,7 +424,7 @@ export function ProductEditor({
                     type="url"
                     {...form.register("url")}
                     disabled={!canEdit}
-                    placeholder="https://partner.com/product?ref=sueno"
+                    placeholder="https://partner.com/product?ref=galene"
                     className="h-10 flex-1 rounded-md border border-border bg-bg px-3.5 font-mono text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
                   />
                   {watchedUrl && (

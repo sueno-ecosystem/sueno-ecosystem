@@ -1,5 +1,5 @@
 {
-  "name": "sueno-ecosystem",
+  "name": "galene",
   "private": true,
   "scripts": {
     "dev:web": "turbo dev --filter=web",

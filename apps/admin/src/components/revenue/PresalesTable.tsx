@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import type { ColumnDef } from "@tanstack/react-table";
 import { Download } from "lucide-react";
-import type { Database, Json } from "@sueno/shared";
+import type { Database, Json } from "@galene/shared";
 import { formatDateTime } from "@/lib/format";
 import { DataTable } from "@/components/DataTable";
 
@@ -106,7 +106,7 @@ export function PresalesTable({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "sueno-presales.csv";
+    a.download = "galene-presales.csv";
     a.click();
     URL.revokeObjectURL(url);
   }

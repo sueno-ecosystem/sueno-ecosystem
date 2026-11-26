@@ -31,7 +31,7 @@ export function WaitlistForm() {
   }
 
   if (state === "done") {
-    return <p className="text-accent">You&apos;re on the list. We&apos;ll email you when Sueño opens.</p>;
+    return <p className="text-accent">You&apos;re on the list. We&apos;ll email you when Galene opens.</p>;
   }
 
   return (

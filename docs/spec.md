@@ -1,8 +1,8 @@
-# Sueño — Architecture v2 (summary)
+# Galene — Architecture v2 (summary)
 
 ## Product
 Social (TikTok/IG) → web landing → $19/mo membership (+ partner bundles $45–120).
-Tabs: Learn (short videos), 4 AM Journal (local-first), Bundles (1–2 personalized + catalog).
+Tabs: Learn (short videos), The 4am Journal / Diario de las 4am (local-first), Bundles (1–2 personalized + catalog).
 
 ## Validation (week 0)
 Landing page + founding-member pre-sale ($29 / 3 months).
@@ -29,7 +29,7 @@ See supabase/migrations/20261124000000_init.sql.
 ## Build order
 0. Landing + pre-sale (this week)
 1. Foundation: schema, auth, Stripe subscription + webhook, membership gate (weeks 1–3)
-2. 4 AM Journal (weeks 3–5)
+2. Diario de las 4am / The 4am Journal (weeks 3–5)
 3. Learn tab on R2, 10–15 videos (weeks 5–6)
 4. Bundles via partner links (weeks 6–7)
 5. TestFlight beta → US App Store (weeks 7–9)

@@ -3,7 +3,7 @@
 import posthog from "posthog-js";
 import { getUtm, type Utm } from "@/lib/utm";
 
-const ATTR_COOKIE = "sueno_attr";
+const ATTR_COOKIE = "galene_attr";
 const THIRTY_DAYS_SEC = 60 * 60 * 24 * 30;
 
 export type InAppBrowser = "tiktok" | "instagram" | "facebook" | "none";

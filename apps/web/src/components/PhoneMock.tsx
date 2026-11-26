@@ -1,6 +1,6 @@
 const tags = ["Racing thoughts", "Too hot", "Caffeine late", "Work worry"];
 
-/** A pure-CSS phone showing the 4 AM Journal. No images, so it loads instantly. */
+/** A pure-CSS phone showing The 4am Journal. No images, so it loads instantly. */
 export function PhoneMock() {
   return (
     <div

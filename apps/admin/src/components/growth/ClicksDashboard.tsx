@@ -59,7 +59,7 @@ export function ClicksDashboard({ rows }: { rows: ClickAggregateInput[] }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "sueno-outbound-clicks.csv";
+    a.download = "galene-outbound-clicks.csv";
     a.click();
     URL.revokeObjectURL(url);
   }

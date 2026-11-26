@@ -1,6 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 
 export function isSupabaseConfigured(): boolean {
   return Boolean(

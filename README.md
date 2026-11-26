@@ -1,6 +1,6 @@
-# Sueño Ecosystem
+# Galene
 
-Sleep recovery platform: Learn (short videos) · 4 AM Journal (local-first, private) · Curated Bundles.
+Calm nights. Whole days. Sleep recovery platform: Learn (short videos) · The 4am Journal (local-first, private) · Curated Bundles.
 
 ## Structure
 ```

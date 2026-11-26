@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ArrowLeft } from "lucide-react";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 import type { AdminRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/client";
 import { formatDateTime, publicMediaUrl } from "@/lib/format";

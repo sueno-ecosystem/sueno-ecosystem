@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Plus, Trash2 } from "lucide-react";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 import type { AdminRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/client";
 import { formatDateTime } from "@/lib/format";
