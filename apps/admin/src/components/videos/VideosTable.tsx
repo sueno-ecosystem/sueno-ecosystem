@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { ColumnDef } from "@tanstack/react-table";
 import { Plus } from "lucide-react";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 import { createClient } from "@/lib/supabase/client";
 import { formatDateTime, formatDuration, slugify } from "@/lib/format";
 import { DataTable } from "@/components/DataTable";

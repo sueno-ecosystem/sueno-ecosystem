@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ArrowDown, ArrowLeft, ArrowUp, Check, Circle, Plus, Search, Trash2 } from "lucide-react";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 import type { AdminRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/client";
 import { formatDateTime, publicMediaUrl, slugify } from "@/lib/format";
@@ -469,7 +469,7 @@ export function BundleEditor({
                   <input
                     {...form.register("discount_code")}
                     disabled={!canEdit}
-                    placeholder="SUENO15"
+                    placeholder="GALENE15"
                     className="h-10 w-full rounded-md border border-border bg-bg px-3.5 font-mono text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
                   />
                 </div>
@@ -481,7 +481,7 @@ export function BundleEditor({
                   type="url"
                   {...form.register("url")}
                   disabled={!canEdit}
-                  placeholder="https://partner.com/bundle?ref=sueno"
+                  placeholder="https://partner.com/bundle?ref=galene"
                   className="h-10 w-full rounded-md border border-border bg-bg px-3.5 font-mono text-sm text-fg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60"
                 />
               </div>

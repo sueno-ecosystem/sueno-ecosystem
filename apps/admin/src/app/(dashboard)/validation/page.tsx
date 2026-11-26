@@ -22,7 +22,7 @@ export default async function ValidationPage() {
       presales={presalesResult.data ?? []}
       isOwner={isOwner}
       posthogDashboardUrl={process.env.NEXT_PUBLIC_POSTHOG_DASHBOARD_URL || null}
-      defaultSiteUrl={process.env.NEXT_PUBLIC_SITE_URL || "https://sueno.app"}
+      defaultSiteUrl={process.env.NEXT_PUBLIC_SITE_URL || ""}
     />
   );
 }

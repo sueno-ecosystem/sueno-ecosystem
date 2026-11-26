@@ -186,7 +186,7 @@ function PlanCard({
               type="url"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
-              placeholder={publicMediaUrl("bundles/hero.jpg") ?? "https://media.sueno.app/..."}
+              placeholder={publicMediaUrl("bundles/hero.jpg") ?? "https://media.<your-domain>/..."}
               className="h-10 w-full rounded-md border border-border bg-bg px-3.5 font-mono text-xs text-fg focus:border-accent focus:outline-none"
             />
           )}

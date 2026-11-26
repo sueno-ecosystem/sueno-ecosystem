@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { ColumnDef } from "@tanstack/react-table";
 import { Plus } from "lucide-react";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 import { createClient } from "@/lib/supabase/client";
 import { publicMediaUrl, slugify } from "@/lib/format";
 import { DataTable } from "@/components/DataTable";
@@ -162,7 +162,7 @@ export function BundlesTable({
         <div>
           <h1 className="text-lg font-semibold tracking-tight">Bundles</h1>
           <p className="text-sm text-fg-muted">
-            Curated sleep setups matched to 4 AM journal trigger tags.
+            Curated sleep setups matched to The 4am Journal trigger tags.
           </p>
         </div>
         {canEdit && (

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Plus } from "lucide-react";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 import { createClient } from "@/lib/supabase/client";
 import { slugify } from "@/lib/format";
 
@@ -90,7 +90,7 @@ export function TagsManager({
         <div>
           <h1 className="text-lg font-semibold tracking-tight">Trigger tags</h1>
           <p className="text-sm text-fg-muted">
-            4 AM journal tags grouped by pillar. Used for bundle matching.
+            The 4am Journal tags grouped by pillar. Used for bundle matching.
           </p>
         </div>
         {canEdit && (

@@ -1,5 +1,7 @@
 # Project rules for AI agents (Antigravity, Claude, etc.)
 
+Product: **Galene**. Read `docs/brand/brand.md` before any UI or copy work.
+Brand architecture: Galene (parent) · Diario de las 4am (community/content, the app's entry; EN: The 4am Journal) · Galene Atelier (own products made in Colombia) · La Selección (multibrand store).
 Each app also has its own AGENTS.md (Next.js / Expo). Read both.
 
 ## Stack (do not change without updating docs/decisions.md)

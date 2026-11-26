@@ -9,7 +9,7 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 // ─── Copy lives here so it's easy to test different hooks ───────────────────
 const HOOK = "Awake at 4 AM again?";
 const SUBHEAD =
-  "Sueño helps you figure out what keeps waking you up and change it, without pills. Short lessons, a private night journal, and sleep setups matched to your nights.";
+  "Galene helps you figure out what keeps waking you up and change it, without pills. Short lessons, a private night journal, and sleep setups matched to your nights.";
 
 const DEFAULT_HOOK: HookVariant = { hook: HOOK, subhead: SUBHEAD };
 
@@ -33,18 +33,18 @@ const features = [
     body: "Short videos across environment, clothing, wearables, medications and sleep basics. Two minutes each, made to watch in bed.",
   },
   {
-    title: "4 AM Journal",
+    title: "The 4am Journal",
     body: "When you wake up, dump what's in your head in night mode, then tap what's keeping you up. Your words never leave your phone.",
   },
   {
     title: "Bundles",
-    body: "Based on what you tag, Sueño suggests one or two sleep setups from brands we've vetted: cooler sheets, better light, quieter rooms.",
+    body: "Based on what you tag, Galene suggests one or two sleep setups from brands we've vetted: cooler sheets, better light, quieter rooms.",
   },
 ];
 
 const faqs = [
   {
-    q: "When does Sueño open?",
+    q: "When does Galene open?",
     a: "We're building it now. Founding members get early access first and updates along the way.",
   },
   {
@@ -57,7 +57,7 @@ const faqs = [
   },
   {
     q: "Is this medical treatment?",
-    a: "No. Sueño is education and habit tools, not medical care. If you take sleep medication or think you have a sleep disorder, talk to your doctor before changing anything.",
+    a: "No. Galene is education and habit tools, not medical care. If you take sleep medication or think you have a sleep disorder, talk to your doctor before changing anything.",
   },
   {
     q: "What if I change my mind?",
@@ -75,7 +75,7 @@ export default function Home() {
         <div className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-accent-2/20 blur-3xl" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 pb-20 pt-16 md:grid-cols-2 md:pt-24">
           <div className="text-center md:text-left">
-            <p className="mb-4 text-sm font-medium tracking-widest text-accent uppercase">Sueño</p>
+            <p className="mb-4 text-sm font-medium tracking-widest text-accent uppercase">Galene</p>
             <HeroCopy defaultVariant={DEFAULT_HOOK} variants={HOOK_VARIANTS} />
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row md:items-start">
               <CheckoutButton location="hero">Become a founding member · {FOUNDING_PRICE}</CheckoutButton>
@@ -126,7 +126,7 @@ export default function Home() {
             <p className="mt-2 text-muted">one-time, covers your {FOUNDING_TERM} after launch. After that, {REGULAR_PRICE} only if you choose to stay.</p>
             <ul className="mx-auto mt-8 max-w-sm space-y-3 text-left text-muted">
               <li>✓ Early access before public launch</li>
-              <li>✓ Founding price while Sueño is new</li>
+              <li>✓ Founding price while Galene is new</li>
               <li>✓ Help shape what we build</li>
               <li>✓ Full refund if you change your mind before launch</li>
             </ul>
@@ -141,7 +141,7 @@ export default function Home() {
       <section id="waitlist" data-section="waitlist" className="border-t border-line">
         <div className="mx-auto flex max-w-3xl flex-col items-center px-6 py-20 text-center">
           <h2 className="text-2xl font-semibold sm:text-3xl">Not ready yet?</h2>
-          <p className="mt-3 text-muted">Get one email when Sueño opens. Nothing else.</p>
+          <p className="mt-3 text-muted">Get one email when Galene opens. Nothing else.</p>
           <div className="mt-8 flex w-full justify-center">
             <WaitlistForm />
           </div>
@@ -158,7 +158,7 @@ export default function Home() {
 
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-10 text-sm text-muted sm:flex-row">
-          <p>© 2026 Sueño</p>
+          <p>© 2026 Galene · Calm nights. Whole days.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="underline-offset-4 hover:text-foreground hover:underline">
               Privacy

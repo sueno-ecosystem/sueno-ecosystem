@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { formatDateTime } from "@/lib/format";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 
 type AuditRow = Database["public"]["Tables"]["audit_log"]["Row"];
 

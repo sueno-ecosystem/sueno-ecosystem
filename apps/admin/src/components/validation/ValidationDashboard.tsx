@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Check, Copy, ExternalLink } from "lucide-react";
-import type { Json } from "@sueno/shared";
+import type { Json } from "@galene/shared";
 import { slugify } from "@/lib/format";
 
 export interface ValidationWaitlistRow {

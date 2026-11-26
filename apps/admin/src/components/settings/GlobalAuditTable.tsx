@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 import { formatDateTime } from "@/lib/format";
 
 type AuditRow = Database["public"]["Tables"]["audit_log"]["Row"];

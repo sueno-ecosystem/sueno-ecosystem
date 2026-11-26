@@ -91,7 +91,7 @@ export function AdminShell({
           {!collapsed && (
             <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
               <span className="inline-block h-2 w-2 rounded-full bg-accent" />
-              <span>Sueño Admin</span>
+              <span>Galene</span>
             </Link>
           )}
           <button

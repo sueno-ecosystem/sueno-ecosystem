@@ -16,8 +16,8 @@ const ThemeContext = createContext<ThemeContextValue>({
   cycle: () => {},
 });
 
-const STORAGE_KEY = "sueno-admin-theme";
-const THEME_EVENT = "sueno-admin-theme-change";
+const STORAGE_KEY = "galene-admin-theme";
+const THEME_EVENT = "galene-admin-theme-change";
 
 function readStoredMode(): ThemeMode {
   if (typeof window === "undefined") return "system";

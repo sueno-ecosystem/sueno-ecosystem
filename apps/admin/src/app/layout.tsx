@@ -7,15 +7,15 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sueño Admin",
-  description: "Internal content and commerce administration for Sueño.",
+  title: "Galene Admin",
+  description: "Internal content and commerce administration for Galene.",
   robots: { index: false, follow: false },
 };
 
 const themeScript = `
 (function() {
   try {
-    var t = localStorage.getItem('sueno-admin-theme') || 'system';
+    var t = localStorage.getItem('galene-admin-theme') || 'system';
     var dark = t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
     document.documentElement.classList.toggle('dark', dark);
   } catch (e) {}

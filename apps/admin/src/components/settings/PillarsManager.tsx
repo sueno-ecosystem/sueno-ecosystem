@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowDown, ArrowUp } from "lucide-react";
-import type { Database } from "@sueno/shared";
+import type { Database } from "@galene/shared";
 import { createClient } from "@/lib/supabase/client";
 
 type PillarRow = Database["public"]["Tables"]["pillars"]["Row"];

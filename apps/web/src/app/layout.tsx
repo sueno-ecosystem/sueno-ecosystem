@@ -7,11 +7,11 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sueño — for the nights you wake up at 4 AM",
+  title: "Galene — Calm nights. Whole days.",
   description:
-    "Understand what keeps waking you up and change it, without pills. Short lessons, a private 4 AM journal, and sleep setups matched to your nights.",
+    "Understand what keeps waking you up and change it, without pills. Short lessons, a private 4am journal, and sleep setups matched to your nights.",
   openGraph: {
-    title: "Sueño — for the nights you wake up at 4 AM",
+    title: "Galene — Calm nights. Whole days.",
     description: "Understand what keeps waking you up and change it, without pills.",
     type: "website",
   },
