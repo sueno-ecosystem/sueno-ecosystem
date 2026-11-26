@@ -1,18 +1,23 @@
 import { redirect } from "next/navigation";
-import { PlaceholderPage } from "@/components/PlaceholderPage";
+import { createClient } from "@/lib/supabase/server";
 import { getAdminSession } from "@/lib/auth";
+import { PresalesTable } from "@/components/revenue/PresalesTable";
 
 export default async function RevenuePresalesPage() {
-  const session = await getAdminSession();
+  const [supabase, session] = await Promise.all([createClient(), getAdminSession()]);
   if (session.status !== "ok" || session.role !== "owner") {
     redirect("/");
   }
 
+  const [{ data: presales }, { data: events }] = await Promise.all([
+    supabase.from("presales").select("*").order("created_at", { ascending: false }),
+    supabase.from("stripe_events").select("id").limit(1),
+  ]);
+
   return (
-    <PlaceholderPage
-      title="Pre-sales"
-      description="Founding-member pre-sales (claimed / unclaimed) and CSV export."
-      notice="Waiting for Stripe webhook. Pre-sales table will be built in PART 3e."
+    <PresalesTable
+      presales={presales ?? []}
+      hasWebhookEvents={(events ?? []).length > 0}
     />
   );
 }
