@@ -15,3 +15,4 @@ One line per decision: date — decision — why.
 - 2026-11-24 — Medications pillar is education only — Apple 1.4.1/1.4.2 and clinical liability.
 - 2026-11-24 — Week 0 = landing page + founding-member pre-sale before building the app — validate willingness to pay.
 - 2026-11-24 — Landing page v1: hook "Awake at 4 AM again?", founding member $29 for first 3 months then $19/mo, full refund before launch — draft copy, test hooks via UTM-tagged videos.
+- 2026-11-26 — Admin ↔ Stripe one-way catalog direction: Supabase + R2 are the single source of truth; Stripe handles only memberships/pre-sales (future self-sold bundles would use a "Sell via Stripe" toggle pushing name + R2 image + price one-way to Stripe).
