@@ -12,13 +12,17 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.900.0",
     "@aws-sdk/s3-request-presigner": "^3.900.0",
+    "@hookform/resolvers": "^7.0.9",
     "@sueno/shared": "workspace:*",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.119.2",
+    "@tanstack/react-table": "^8.21.3",
     "lucide-react": "^0.562.0",
     "next": "16.4.6",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-hook-form": "^7.92.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
