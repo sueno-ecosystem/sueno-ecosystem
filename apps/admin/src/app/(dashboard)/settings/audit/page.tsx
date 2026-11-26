@@ -1,11 +1,13 @@
-import { PlaceholderPage } from "@/components/PlaceholderPage";
+import { createClient } from "@/lib/supabase/server";
+import { GlobalAuditTable } from "@/components/settings/GlobalAuditTable";
 
-export default function AuditLogPage() {
-  return (
-    <PlaceholderPage
-      title="Audit log"
-      description="Global history of content, commerce, and admin changes."
-      notice="Audit log table & diff viewer will be built in PART 3f."
-    />
-  );
+export default async function AuditLogPage() {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("audit_log")
+    .select("*")
+    .order("changed_at", { ascending: false })
+    .limit(200);
+
+  return <GlobalAuditTable rows={data ?? []} />;
 }

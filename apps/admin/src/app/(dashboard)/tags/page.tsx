@@ -1,11 +1,21 @@
-import { PlaceholderPage } from "@/components/PlaceholderPage";
+import { createClient } from "@/lib/supabase/server";
+import { getAdminSession } from "@/lib/auth";
+import { TagsManager } from "@/components/settings/TagsManager";
 
-export default function TagsPage() {
+export default async function TagsPage() {
+  const [supabase, session] = await Promise.all([createClient(), getAdminSession()]);
+  const canEdit = session.status === "ok" && (session.role === "owner" || session.role === "editor");
+
+  const [{ data: tags }, { data: pillars }] = await Promise.all([
+    supabase.from("trigger_tags").select("*").order("sort", { ascending: true }),
+    supabase.from("pillars").select("*").order("sort", { ascending: true }),
+  ]);
+
   return (
-    <PlaceholderPage
-      title="Trigger tags"
-      description="Manage 4 AM journal trigger tags grouped by pillar."
-      notice="Trigger tags manager will be built in PART 3f."
+    <TagsManager
+      initialTags={tags ?? []}
+      pillars={pillars ?? []}
+      canEdit={canEdit}
     />
   );
 }

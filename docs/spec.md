@@ -39,3 +39,8 @@ RevenueCat/IAP, E2EE backup, full web app, pgvector, self-hosted OTA (~50k MAU),
 
 ## Speed targets
 Cold start <2s (mid Android) · journal open <300ms · first video frame <1s · landing LCP <2.5s.
+
+## Client content reads (v1)
+- Web, iOS, and Android read `pillars`, `trigger_tags`, `videos`, `video_tags`, `partners`, `products`, `bundles`, `bundle_items`, and `recommendations` directly via Supabase anon key + user session; RLS returns only published rows (and `members` videos only when `is_member()`).
+- Media URLs = `NEXT_PUBLIC_MEDIA_BASE_URL` + R2 key; show `*_es` fields when device language is Spanish, else English.
+- Mobile caches with TanStack Query (persisted) and refreshes in the background; bundle/product taps insert into `outbound_clicks` then open the partner URL.
