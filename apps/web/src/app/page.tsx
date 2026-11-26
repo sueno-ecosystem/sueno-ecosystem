@@ -1,4 +1,8 @@
+import Link from "next/link";
 import { CheckoutButton } from "@/components/CheckoutButton";
+import { FaqList } from "@/components/FaqList";
+import { HeroCopy, type HookVariant } from "@/components/HeroCopy";
+import { LandingTracker } from "@/components/LandingTracker";
 import { PhoneMock } from "@/components/PhoneMock";
 import { WaitlistForm } from "@/components/WaitlistForm";
 
@@ -6,6 +10,19 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 const HOOK = "Awake at 4 AM again?";
 const SUBHEAD =
   "Sueño helps you figure out what keeps waking you up and change it, without pills. Short lessons, a private night journal, and sleep setups matched to your nights.";
+
+const DEFAULT_HOOK: HookVariant = { hook: HOOK, subhead: SUBHEAD };
+
+// Prepared for PostHog feature flag `landing-hook` (off by default)
+const HOOK_VARIANTS: Record<string, HookVariant> = {
+  control: DEFAULT_HOOK,
+  "no-pills": {
+    hook: "Stop staring at the ceiling at 4 AM.",
+    subhead:
+      "Figure out what's actually waking you up — room temperature, light, caffeine, or stress — and fix it without sleep pills.",
+  },
+};
+
 const FOUNDING_PRICE = "$29";
 const FOUNDING_TERM = "first 3 months";
 const REGULAR_PRICE = "$19/month";
@@ -51,16 +68,17 @@ const faqs = [
 export default function Home() {
   return (
     <main className="flex-1">
+      <LandingTracker />
+
       {/* Hero */}
-      <section className="relative overflow-hidden">
+      <section data-section="hero" className="relative overflow-hidden">
         <div className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-accent-2/20 blur-3xl" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 pb-20 pt-16 md:grid-cols-2 md:pt-24">
           <div className="text-center md:text-left">
             <p className="mb-4 text-sm font-medium tracking-widest text-accent uppercase">Sueño</p>
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl">{HOOK}</h1>
-            <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted md:mx-0">{SUBHEAD}</p>
+            <HeroCopy defaultVariant={DEFAULT_HOOK} variants={HOOK_VARIANTS} />
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row md:items-start">
-              <CheckoutButton>Become a founding member · {FOUNDING_PRICE}</CheckoutButton>
+              <CheckoutButton location="hero">Become a founding member · {FOUNDING_PRICE}</CheckoutButton>
               <a href="#waitlist" className="px-2 py-3.5 text-sm text-muted underline-offset-4 hover:text-foreground hover:underline">
                 Not ready? Join the waitlist
               </a>
@@ -71,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* What it is */}
-      <section className="border-t border-line">
+      <section data-section="features" className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <h2 className="text-center text-2xl font-semibold sm:text-3xl">Three tools for better nights</h2>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -86,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* Why different */}
-      <section className="border-t border-line">
+      <section data-section="why" className="border-t border-line">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2">
           <div>
             <h2 className="text-2xl font-semibold sm:text-3xl">No pills. No guilt. No one reading your diary.</h2>
@@ -100,7 +118,7 @@ export default function Home() {
       </section>
 
       {/* Founding offer */}
-      <section id="founding" className="border-t border-line">
+      <section id="founding" data-section="founding" className="border-t border-line">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center">
           <div className="rounded-3xl border border-accent/40 bg-card p-8 sm:p-12">
             <p className="text-sm font-medium tracking-widest text-accent uppercase">Founding member</p>
@@ -113,14 +131,14 @@ export default function Home() {
               <li>✓ Full refund if you change your mind before launch</li>
             </ul>
             <div className="mt-10 flex justify-center">
-              <CheckoutButton>Reserve my spot · {FOUNDING_PRICE}</CheckoutButton>
+              <CheckoutButton location="founding">Reserve my spot · {FOUNDING_PRICE}</CheckoutButton>
             </div>
           </div>
         </div>
       </section>
 
       {/* Waitlist */}
-      <section id="waitlist" className="border-t border-line">
+      <section id="waitlist" data-section="waitlist" className="border-t border-line">
         <div className="mx-auto flex max-w-3xl flex-col items-center px-6 py-20 text-center">
           <h2 className="text-2xl font-semibold sm:text-3xl">Not ready yet?</h2>
           <p className="mt-3 text-muted">Get one email when Sueño opens. Nothing else.</p>
@@ -131,27 +149,22 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-line">
+      <section data-section="faq" className="border-t border-line">
         <div className="mx-auto max-w-3xl px-6 py-20">
           <h2 className="text-center text-2xl font-semibold sm:text-3xl">Questions</h2>
-          <div className="mt-10 divide-y divide-line rounded-3xl border border-line bg-card">
-            {faqs.map((f) => (
-              <details key={f.q} className="group px-6 py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-                  {f.q}
-                  <span className="text-muted transition group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-3 leading-relaxed text-muted">{f.a}</p>
-              </details>
-            ))}
-          </div>
+          <FaqList items={faqs} />
         </div>
       </section>
 
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-10 text-sm text-muted sm:flex-row">
           <p>© 2026 Sueño</p>
-          <p>Education and habit tools, not medical advice.</p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="underline-offset-4 hover:text-foreground hover:underline">
+              Privacy
+            </Link>
+            <p>Education and habit tools, not medical advice.</p>
+          </div>
         </div>
       </footer>
     </main>

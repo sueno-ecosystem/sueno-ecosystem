@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { getUtm } from "@/lib/utm";
+import { getDistinctId, getOrSaveFirstTouch, track } from "@/lib/analytics";
 
 export function WaitlistForm() {
   const [email, setEmail] = useState("");
@@ -10,19 +10,23 @@ export function WaitlistForm() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    track("waitlist_submit");
     setState("loading");
     try {
+      const { utm } = getOrSaveFirstTouch();
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, utm: getUtm() }),
+        body: JSON.stringify({ email, utm, distinct_id: getDistinctId() }),
       });
       const data = (await res.json()) as { error?: string };
       if (!res.ok) throw new Error(data.error ?? "Couldn't save your email. Try again.");
       setState("done");
     } catch (err) {
+      const msg = err instanceof Error ? err.message : "Couldn't save your email. Try again.";
+      track("waitlist_error", { message: msg });
       setState("error");
-      setMessage(err instanceof Error ? err.message : "Couldn't save your email. Try again.");
+      setMessage(msg);
     }
   }
 
