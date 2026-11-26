@@ -26,5 +26,6 @@ Each app also has its own AGENTS.md (Next.js / Expo). Read both.
 ## Conventions
 - Install with pnpm only. Run `pnpm typecheck && pnpm lint` before committing.
 - Regenerate DB types with `pnpm db:types` after any migration.
+- Admin writes, apps read published only; files in R2; never service role in client code.
 - New migration version numbers must be greater than the latest existing one (e.g. `20261130000000`, `20261201000000`, or `supabase migration new` only if its timestamp is already higher).
 - Small PRs into main. Conventional commits (feat:, fix:, chore:, docs:).
